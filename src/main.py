@@ -39,20 +39,18 @@ def main():
     print(f"Melhor k (Cosseno, otimizando F1-Score): {optimal_k_cosine}")
     
     results_visualizer = ResultsVisualizer()
+
+    results_visualizer.plot_roc_comparison_cv(
+    X=X,
+    y=y,
+    unique_syndromes=unique_syndromes,
+    optimal_k_euclidean=optimal_k_euclidean,
+    optimal_k_cosine=optimal_k_cosine,
+    n_splits=10
+)
     
-    X_train_roc, X_test_roc, y_train_roc, y_test_roc = train_test_split(X, y, test_size=0.2, random_state=42)
-    
-    knn_euclidean_optimal = CustomKNeighborsClassifier(n_neighbors=optimal_k_euclidean, metric='euclidean')
-    knn_euclidean_optimal.fit(X_train_roc, y_train_roc)
-    y_proba_euclidean_roc = knn_euclidean_optimal.predict_proba(X_test_roc)
-    
-    knn_cosine_optimal = CustomKNeighborsClassifier(n_neighbors=optimal_k_cosine, metric='cosine')
-    knn_cosine_optimal.fit(X_train_roc, y_train_roc)
-    y_proba_cosine_roc = knn_cosine_optimal.predict_proba(X_test_roc)
-    
-    results_visualizer.plot_roc_curves([y_test_roc], [y_proba_euclidean_roc], unique_syndromes, 'euclidean')
-    results_visualizer.plot_roc_curves([y_test_roc], [y_proba_cosine_roc], unique_syndromes, 'cosine')
-    
+
+
     results_visualizer.plot_k_optimization_results(euclidean_results_df, cosine_results_df)
     results_visualizer.generate_summary_tables(euclidean_results_df, cosine_results_df, optimal_k_euclidean, optimal_k_cosine)
     
