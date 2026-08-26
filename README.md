@@ -1,4 +1,4 @@
-# Machine Learning Practical Test
+# Genetic Syndrome Classification with Machine Learning
 
 ## Project Description
 
