@@ -1,4 +1,4 @@
-# Apollo Solutions - Machine Learning Practical Test
+# Machine Learning Practical Test
 
 ## Project Description
 
