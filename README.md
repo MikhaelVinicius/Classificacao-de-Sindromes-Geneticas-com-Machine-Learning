@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This project was developed as part of the practical assessment for the Machine Learning Developer. The main objective is to analyze image embeddings (320-dimensional feature vectors) to classify genetic syndromes.
+The main objective is to analyze image embeddings (320-dimensional feature vectors) to classify genetic syndromes.
 
 The complete pipeline covers the entire workflow, from processing nested data stored in a `.pickle` file to performing Exploratory Data Analysis (EDA), visualizing the embeddings using t-SNE, and implementing a custom K-Nearest Neighbors (KNN) classifier. The model was evaluated using 10-fold cross-validation, comparing Euclidean and Cosine distance metrics while computing key performance metrics such as Accuracy, F1-Score, AUC, and Top-3 Accuracy.
 
